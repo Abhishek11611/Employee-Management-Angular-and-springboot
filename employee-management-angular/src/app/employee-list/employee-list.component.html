@@ -1,0 +1,91 @@
+<div class="container-fluid mt-4">
+  <h3 class="text-dark text-center"><b>Employee List</b></h3>
+
+  <!-- Search Input Field -->
+  <div class="row mb-3">
+    <div class="col-md-6 offset-md-3">
+      <input type="text" class="form-control" placeholder="Search by Employee Name" [(ngModel)]="searchTerm" (input)="searchEmployee()">
+    </div>
+  </div>
+
+  <!-- Department Dropdown -->
+  <div class="row mb-3">
+    <div class="col-md-6 offset-md-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Select Department</mat-label>
+        <mat-select [(ngModel)]="selectedDepartment" (selectionChange)="filterByDepartment()">
+          <mat-option value="">All Departments</mat-option>
+          <mat-option *ngFor="let dept of departments" [value]="dept">{{ dept }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered align-middle text-center">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Emp Code</th>
+          <th scope="col">Emp Name</th>
+          <th scope="col">Department</th>
+          <th scope="col">Date of Joining</th>
+          <th scope="col">Address 1</th>
+          <th scope="col">Address 2</th>
+          <th scope="col">Address 3</th>
+          <th scope="col">City</th>
+          <th scope="col">State</th>
+          <th scope="col">Pincode</th>
+          <th scope="col">Contact No 1</th>
+          <th scope="col">Contact No 2</th>
+          <th scope="col">Created By</th>
+          <th scope="col">Created Time</th>
+          <th scope="col">Updated By</th>
+          <th scope="col">Updated Time</th>
+          <th scope="col">Active Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of filteredEmployees">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.empCode }}</td>
+          <td>{{ employee.empName }}</td>
+          <td>{{ employee.dept }}</td>
+          <td>{{ employee.dateOfJoin | date }}</td>
+          <td>{{ employee.addr1 }}</td>
+          <td>{{ employee.addr2 }}</td>
+          <td>{{ employee.addr3 }}</td>
+          <td>{{ employee.city }}</td>
+          <td>{{ employee.state }}</td>
+          <td>{{ employee.pinCode }}</td>
+          <td>{{ employee.contactNo1 }}</td>
+          <td>{{ employee.contactNo2 }}</td>
+          <td>{{ employee.createBy }}</td>
+          <td>{{ employee.createTime | date:'medium' }}</td>
+          <td>{{ employee.updateBy }}</td>
+          <td>{{ employee.updateTime | date:'medium' }}</td>
+          <td>
+            <span [class.badge-success]="employee.activeStatus === 'A'" 
+                  [class.badge-danger]="employee.activeStatus === 'I'" 
+                  class="badge">
+              {{ employee.activeStatus === 'A' ? 'Active' : 'Inactive' }}
+            </span>
+          </td>
+          <td>
+            <button (click)="updateEmployee(employee.id)" class="btn btn-info btn-sm">Update</button>
+            <button (click)="deleteEmployee(employee.id)" class="btn btn-danger btn-sm">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Angular Material Pagination -->
+  <mat-paginator [length]="totalItems"
+                 [pageSize]="itemsPerPage"
+                 [pageIndex]="currentPage"
+                 [pageSizeOptions]="[5, 10, 20]"
+                 (page)="onPageChange($event)">
+  </mat-paginator>
+</div>

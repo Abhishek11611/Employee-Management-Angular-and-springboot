@@ -1,0 +1,39 @@
+.table {
+    font-size: 11px;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .table-responsive {
+    max-height: max-content; /* Adds scroll if table overflows */
+    overflow-y: auto;
+  }
+  
+  .table thead {
+    background-color: #343a40;
+    color: white;
+  }
+  
+  .badge {
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+  }
+  
+  .badge-success {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .badge-danger {
+    background-color: #dc3545;
+    color: white;
+  }
+
+ 
+  

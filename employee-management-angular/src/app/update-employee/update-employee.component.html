@@ -1,0 +1,78 @@
+<div class="container">
+    <h3 class="text-danger text-center">Update Employee Form</h3>
+    <form  (ngSubmit)="updateEmployeeData()">
+        
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Employee Code</label>
+                <input type="text" class="form-control" id="empCode" name="empCode" [(ngModel)]="employee.empCode" required>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Employee Name</label>
+                <input type="text" class="form-control" id="empName" name="empName" [(ngModel)]="employee.empName" required>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Department</label>
+                <input type="text" class="form-control" id="dept" name="dept" [(ngModel)]="employee.dept" required>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Date of Joining</label>
+                <input type="date" class="form-control" id="dateOfJoin" name="dateOfJoin" [(ngModel)]="employee.dateOfJoin">
+            </div>
+        </div>
+
+        <h5 class="text-primary">Address Details</h5>
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Address 1</label>
+                <input type="text" class="form-control" id="addr1" name="addr1" [(ngModel)]="employee.addr1">
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Address 2</label>
+                <input type="text" class="form-control" id="addr2" name="addr2" [(ngModel)]="employee.addr2">
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Address 3</label>
+                <input type="text" class="form-control" id="addr3" name="addr3" [(ngModel)]="employee.addr3">
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">City</label>
+                <input type="text" class="form-control" id="city" name="city" [(ngModel)]="employee.city">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <label class="form-label">State</label>
+                <input type="text" class="form-control" id="state" name="state" [(ngModel)]="employee.state">
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Pincode</label>
+                <input type="text" class="form-control" id="pinCode" name="pinCode" [(ngModel)]="employee.pinCode">
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Contact No 1</label>
+                <input type="number" class="form-control" id="contactNo1" name="contactNo1" [(ngModel)]="employee.contactNo1" required>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Contact No 2</label>
+                <input type="number" class="form-control" id="contactNo2" name="contactNo2" [(ngModel)]="employee.contactNo2">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Active Status</label>
+                <select class="form-control" id="activeStatus" name="activeStatus" [(ngModel)]="employee.activeStatus">
+                    <option value="A" selected>Active</option>
+                    <option value="I">Inactive</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Update Employee</button>
+    </form>
+</div>
